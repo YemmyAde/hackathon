@@ -44,7 +44,7 @@ export const getCategory = async () => {
 };
 
 export const postRegister = async (payload: IRegister) => {
-  const data = await http.post("/hackathon/contact-form", payload);
+  const data = await http.post("/hackathon/registration", payload);
   return data;
 };
 

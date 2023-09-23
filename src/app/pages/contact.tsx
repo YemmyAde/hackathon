@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Loader } from "../components/loader";
 import { IContactData } from "../interface/contact";
+import Header from "../components/header";
 
 const Contact = () => {
   const [contactData, setContactData] = useState<IContactData>({
@@ -36,8 +37,13 @@ const Contact = () => {
     <div>
       {/* className=" purple-flare color1" */}
 
-      <div className="text-left  min-h-[100vh] font-mont flex flex-col items-center w-full color1 overflow-hidden">
-        <div className="w-[1521px] max-w-[1512px] flex items-center flex-col relative">
+      <div className="text-left  min-h-[100vh] font-mont flex flex-col items-center w-full color1 overflow-hidden px-[20px] relative">
+        <img
+          src="/images/star-c2.svg"
+          alt=""
+          className="blink absolute top-[5%] right-[20%]  w-[10px] md:w-auto "
+        />
+        <div className=" w-full 2xl:w-[1521px] max-w-[1512px] flex items-center flex-col relative">
           <img
             src="/images/purple-light-2.svg"
             alt=""
@@ -48,6 +54,7 @@ const Contact = () => {
             alt=""
             className="mix-blend-hard-light absolute -left-[200px]  z-[1]"
           />
+         
           <div className="flex pt-[4.1875rem] items-center  w-[79.0625rem] justify-between">
             <img src="/images/getlinked-logo.svg" alt="" className="" />
             <div className="flex justify-end items-center">
@@ -63,8 +70,13 @@ const Contact = () => {
             </div>
           </div>
           <div className="relative ">
-            <div className=" text-[#fff]  pb-[7.1875rem] mt-[8.75rem] justify-center flex-col ">
-              <div className="mr-[14.0625rem] mt-[2.5625rem] relative hidden md:flex">
+            <div className=" text-[#fff]  pb-[7.1875rem] mt-[8.75rem] flex justify-between gap-5">
+              <div className="md:mr-[8rem] xl:mr-[14.0625rem] mt-[2.5625rem] relative hidden md:block">
+                <img
+                  src="/images/star-c3.svg"
+                  alt=""
+                  className="blink absolute -top-[10%] left-[0]  w-[10px] md:w-auto "
+                />
                 <h4 className="text-[2rem] leading-[2.4375rem] mt-[1.0625rem] font-clash font-semibold text-[#D434FE]">
                   Get in touch
                 </h4>
@@ -127,8 +139,8 @@ const Contact = () => {
                   </li>
                 </ul>
               </div>
-              <div className="rounded-[12px]  px-[5.625rem] md:pt-[4.6875rem] pb-[4.1875rem] md:bg-[rgba(255,255,255,0.03)] shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] relative">
-                <h6 className="font-clash font-semibold text-[1.25rem] leading-[1.5375rem] text-[#D434FE] px-[0.125rem]">
+              <div className="rounded-[12px] px-[40px] xl:px-[5.625rem] md:pt-[4.6875rem] pb-[4.1875rem] md:bg-[rgba(255,255,255,0.03)] md:shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] relative">
+                <h6 className="font-clash font-semibold text-[1.25rem] leading-[1.5375rem] text-[#D434FE] px-[0.125rem] w-[195px] md:w-auto">
                   Questions or need assistance?{" "}
                 </h6>
 
@@ -136,11 +148,20 @@ const Contact = () => {
                   {" "}
                   Let us know about it!
                 </h6>
-                <form className="text-[#fff]">
+
+                <p className="my-[1.375rem] font-normal text-[1rem] leading-[1.21875rem] md:hidden">
+                  Email us below to any question related to our event
+                </p>
+                <form className="text-[#fff] relative">
+                  <img
+                    src="/images/star-c.svg"
+                    alt=""
+                    className="blink absolute bottom-[-100px] left-[0%]  w-[10px] md:w-auto "
+                  />
                   <input
                     type="text"
                     className="border-[1px] border-[#fff] rounded-[4px] text-[1rem] leading-[1.21875rem]
-               pt-[0.8125rem] pb-[0.875rem] px-[1.8125rem] bg-[rgba(255,255,255,0.03)] mb-[2.625rem] text-[#fff] md:w-[27.3125rem]"
+               pt-[0.8125rem] pb-[0.875rem] px-[1.8125rem] bg-[rgba(255,255,255,0.03)] mb-[2.625rem] text-[#fff] w-full xl:w-[27.3125rem]"
                     placeholder="First Name"
                     name="first_name"
                     onChange={formHandler}
@@ -149,7 +170,7 @@ const Contact = () => {
                   <input
                     type="mail"
                     className="border-[1px] border-[#fff] rounded-[4px] text-[1rem] leading-[1.21875rem]
-               pt-[0.8125rem] pb-[0.875rem] px-[1.8125rem] bg-[rgba(255,255,255,0.03)] mb-[2.4375rem] w-[27.3125rem]"
+               pt-[0.8125rem] pb-[0.875rem] px-[1.8125rem] bg-[rgba(255,255,255,0.03)] mb-[2.4375rem] w-full xl:w-[27.3125rem]"
                     placeholder="Mail"
                     name="mail"
                     onChange={formHandler}
@@ -158,7 +179,7 @@ const Contact = () => {
                   <textarea
                     id=""
                     className="border-[1px] border-[#fff] rounded-[4px] text-[1rem] leading-[1.21875rem]
-               pt-[0.375rem] px-[0.9375rem] bg-[rgba(255,255,255,0.03)] resize-none h-[7.4375rem] w-[27.3125rem]"
+               pt-[0.375rem] px-[0.9375rem] bg-[rgba(255,255,255,0.03)] resize-none h-[7.4375rem] w-full xl:w-[27.3125rem]"
                     placeholder="Message"
                     name="message"
                     onChange={formHandler}
@@ -173,6 +194,49 @@ const Contact = () => {
                     >
                       {loading ? <Loader /> : "Submit"}
                     </button>
+                  </div>
+                  <div className="md:hidden flex text-center flex-col ">
+                    <p className="text-[#D434FE] mt-[2.1875rem] mb-[1.125rem] font-mont text-[1rem] font-normal leading-[1.21875rem]">
+                      Share on
+                    </p>
+                    <ul className="flex items-center justify-center">
+                      <li className="">
+                        <a href="#" target="_blank" className="">
+                          <img
+                            src="/images/insta.svg"
+                            alt="instagram logo"
+                            className=""
+                          />
+                        </a>
+                      </li>
+                      <li className="ml-[1.1875rem]">
+                        <a href="#" target="_blank" className="">
+                          <img
+                            src="/images/twitter.svg"
+                            alt="twitter logo"
+                            className=""
+                          />
+                        </a>
+                      </li>{" "}
+                      <li className="ml-[1rem]">
+                        <a href="#" target="_blank">
+                          <img
+                            src="/images/facebook.svg"
+                            alt="facebook logo"
+                            className=""
+                          />
+                        </a>
+                      </li>{" "}
+                      <li className="ml-[1.03125rem]">
+                        <a href="#" target="_blank">
+                          <img
+                            src="/images/linkedin.svg"
+                            alt="linkedin logo"
+                            className=""
+                          />
+                        </a>
+                      </li>
+                    </ul>
                   </div>
                 </form>
               </div>

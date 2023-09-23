@@ -215,10 +215,20 @@ const Landing = () => {
         {/* introduction */}
         <div className="flex md:pl-[230px] md:pr-[101px] gap-[109px] text-[#fff] items-center bg-[#150E28] relative z-[3] pt-[3.875rem] pb-[4.875rem] border-b-[1px] border-[#fff] border-opacity-[0.18] flex-col md:flex-row w-full mx-auto text-center md:text-left px-[10%] md:px-0">
           <div className="">
-            <img src="/images/idea.svg" alt="" className="md:max-w-[741px]" />
+            <img
+              src="/images/idea.svg"
+              alt=""
+              className="md:max-w-[741px]"
+              data-aos="fade-right"
+              data-aos-once="false"
+            />
           </div>
-          <div className=" mx-auto w-full">
-            <h5 className="font-clash text-[2rem] leading-0 font-bold md:w-[398px] px-[5%] md;px-0">
+          <div
+            className=" mx-auto w-full "
+            data-aos="fade-left"
+            data-aos-once="false"
+          >
+            <h5 className="font-clash text-[2rem] leading-0 font-bold md:w-[398px] px-[5%] md:px-0">
               Introduction to getlinked <br />
               <span className="text-[#D434FE]">tech Hackathon 1.0 </span>
             </h5>
@@ -235,7 +245,11 @@ const Landing = () => {
         </div>
         {/* rules */}
         <div className="purple-flare2  flex xl:pl-[11.3125rem] xl:pr-[3.75rem] xl:gap-6 text-[#fff] items-center border-b-[1px] border-[#fff] border-opacity-[0.18] flex-col lg:flex-row mx-auto w-full px-[43px]">
-          <div className="relative -top-[65px] flex-1 text-center md:text-left">
+          <div
+            className="relative -top-[65px] flex-1 text-center md:text-left"
+            data-aos="fade-right"
+            data-aos-once="false"
+          >
             <h5 className="font-clash text-[2rem] leading-normal font-bold xl:w-[18.75rem] ">
               Rules and <span className="text-[#D434FE]">Guidelines </span>
             </h5>
@@ -250,7 +264,11 @@ const Landing = () => {
             </p>
           </div>
 
-          <div className="relative flex-1">
+          <div
+            className="relative flex-1"
+            data-aos="fade-left"
+            data-aos-once="false"
+          >
             <img
               src="/images/rules.svg"
               alt=""
@@ -265,7 +283,7 @@ const Landing = () => {
         </div>
         {/* judging */}
         <div className="flex  items-center pl-[56px] gap-[53px] text-[#fff] font-mont pt-[78px] pb-[150px] border-b-[1px] border-[#fff] border-opacity-[0.18]">
-          <div className="relative">
+          <div className="relative" data-aos="fade-right" data-aos-once="false">
             <img src="/images/judging.svg" alt="" className="max-w-[710px]" />
             <img
               src="/images/purple4.svg"
@@ -274,7 +292,7 @@ const Landing = () => {
             />
           </div>
 
-          <div className="relative">
+          <div className="relative" data-aos="fade-left" data-aos-once="false">
             <h5 className="font-clash text-[2rem] leading-normal font-bold w-[300px]">
               Judging Criteria
               <span className="text-[#D434FE]"> Key attributes </span>
@@ -315,7 +333,7 @@ const Landing = () => {
           className="flex pl-[219px] pr-[101px] gap-6 text-[#fff] pt-[160px] pb-[30px] border-b-[1px] border-[#fff] border-opacity-[0.18]"
           id="faq"
         >
-          <div className="">
+          <div className="" data-aos="fade-right" data-aos-once="false">
             <h5 className="font-clash text-[2rem] leading-normal font-bold w-[300px]">
               Frequently Ask <span className="text-[#D434FE]">Question </span>
             </h5>
@@ -354,7 +372,7 @@ const Landing = () => {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative" data-aos="fade-left" data-aos-once="false">
             <img
               src="/images/question1.svg"
               alt=""
@@ -375,16 +393,18 @@ const Landing = () => {
         </div>
         {/* timeline */}
         <div
-          className="flex items-center justify-center flex-col text-[rgb(255,255,255)] mb-[600px] pt-[72px] pb-[30px] border-b-[1px] border-[#fff] border-opacity-[0.18]"
+          className="flex items-center justify-center flex-col text-[rgb(255,255,255)] pt-[72px] pb-[30px] border-b-[1px] border-[#fff] border-opacity-[0.18]"
           id="timeline"
         >
-          <h6 className="text-[2rem] font-clash font-bold leading-[1.71875rem]">
-            Timeline
-          </h6>
-          <p className=" mx-auto mt-[1.375rem] mb-[91px] font-mont text-sm leading-[24.13px] text-[#fff] font-normal w-[346px] text-center ">
-            Here is the breakdown of the time we anticipate using for the
-            upcoming event.
-          </p>
+          <div className="text-center" data-aos="zoom-in" data-aos-once="false">
+            <h6 className="text-[2rem] font-clash font-bold leading-[1.71875rem]">
+              Timeline
+            </h6>
+            <p className=" mx-auto mt-[1.375rem] mb-[91px] font-mont text-sm leading-[24.13px] text-[#fff] font-normal w-[346px] text-center ">
+              Here is the breakdown of the time we anticipate using for the
+              upcoming event.
+            </p>
+          </div>
 
           <div className="h-[137px] w-[4px] bg-[#D434FE]"></div>
           <div className="flex items-center gap-[86px]">
@@ -509,37 +529,39 @@ const Landing = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-between font-mont pl-[124px] pr-[157px]">
+        <div className="flex justify-between font-mont pl-[124px] pr-[157px] py-[200px]">
           <div className="">
             <img src="/images/cup.svg" alt="" className="max-w-[458px]" />
           </div>
           <div className="py-[200px] flex  items-center gap-[30px]">
-            <div className="w-[296px]  text-center mx-auto text-[#fff] relative">
+            
+            <div className=" text-center mx-auto text-[#fff] relative ">
+             
               <img
-                src="/images/gold_medal.svg"
+                src="/images/silver_medal.svg"
                 alt=""
-                className="absolute -top-[80%] -left-[40px] w-full"
+                className="absolute -top-[40%] -left-[0px] w-[200px]"
               />
-              <div className="border-[1px] rounded-[8px] border-[#903AFF] w-[212px]">
+              <div className="border-[1px] rounded-[8px] border-[#903AFF] w-[212px] pb-[40px]">
                 <p className="mt-[80px] text-[36px] font-bold leading-[77.904px] font-mont ">
-                  1st
+                  2nd
                 </p>
                 <p className="-mt-[30px] text-[24px] font-semibold leading-[51.936px]">
                   Runner
                 </p>
-                <p className="mb-[33px] text-[#903AFF] text-[32px] font-bold leading-[69.248pxx] px-[25px]">
-                  #400,000
+                <p className="mb-[33px] text-[#D434FE] text-[32px] font-bold leading-[69.248pxx] px-[25px]">
+                  N300,000
                 </p>
               </div>
             </div>
 
-            <div className="w-[296px]  text-center mx-auto text-[#fff] relative">
+            <div className=" text-center mx-auto text-[#fff] relative top-[30px]">
               <img
                 src="/images/gold_medal.svg"
                 alt=""
-                className="absolute -top-[80%] -left-[40px] w-full"
+                className="absolute -top-[50%] -left-[0px] w-[400px]"
               />
-              <div className="border-[1px] rounded-[8px] border-[#903AFF] w-[212px]">
+              <div className="border-[1px] rounded-[8px] border-[#903AFF] w-[212px] pb-[40px]">
                 <p className="mt-[80px] text-[36px] font-bold leading-[77.904px] font-mont ">
                   1st
                 </p>
@@ -547,70 +569,72 @@ const Landing = () => {
                   Runner
                 </p>
                 <p className="mb-[33px] text-[#903AFF] text-[32px] font-bold leading-[69.248pxx] px-[25px]">
-                  #400,000
+                  N400,000
                 </p>
               </div>
             </div>
-            <div className="w-[296px]  text-center mx-auto text-[#fff] relative">
+            <div className=" text-center mx-auto text-[#fff] relative">
               <img
-                src="/images/gold_medal.svg"
+                src="/images/bronze_medal.svg"
                 alt=""
-                className="absolute -top-[80%] -left-[40px] w-full"
+                className="absolute -top-[40%] -left-[0px] w-[200px]"
               />
-              <div className="border-[1px] rounded-[8px] border-[#903AFF] w-[212px]">
+              <div className="border-[1px] rounded-[8px] border-[#903AFF] w-[212px] pb-[40px]">
                 <p className="mt-[80px] text-[36px] font-bold leading-[77.904px] font-mont ">
-                  1st
+                  3rd
                 </p>
                 <p className="-mt-[30px] text-[24px] font-semibold leading-[51.936px]">
                   Runner
                 </p>
-                <p className="mb-[33px] text-[#903AFF] text-[32px] font-bold leading-[69.248pxx] px-[25px]">
-                  #400,000
+                <p className="mb-[33px] text-[#D434FE] text-[32px] font-bold leading-[69.248pxx] px-[25px]">
+                  N150,000
                 </p>
               </div>
             </div>
           </div>
         </div>
         {/* partner */}
-        <div className="relative flex justify-center items-center md:items-start font-mont text-[#fff] mx-auto text-center pb-[120px] border-b-[1px] border-[#fff] border-opacity-[0.18]">
+        <div className="relative flex justify-center items-center md:items-start font-mont text-[#fff] mx-auto text-center pb-[120px] border-b-[1px] border-[#fff] border-opacity-[0.18] w-full px-[49px]">
           <img
             src="/images/purple6.svg"
             alt=""
             className="absolute blur-lg w-[30%] -top-[5%] left-0 mix-blend-hard-light"
           />
           <div className="text-center">
-            <h6 className="text-[2rem] font-clash font-bold leading-[1.71875rem]">
-              Partners and Sponsors
-            </h6>
-            <p className=" mx-auto mt-[1.375rem] mb-[4.0625rem] font-mont text-sm leading-[1.7188rem] text-[#fff] font-normal w-[452px] text-center ">
-              Getlinked Hackathon 1.0 is honored to have the following major
-              companies as its partners and sponsors
-            </p>
+            <div className="" data-aos="zoom-in" data-aos-once="false">
+              <h6 className="text-[2rem] font-clash font-bold leading-[1.71875rem]">
+                Partners and Sponsors
+              </h6>
+              <p className=" mx-auto mt-[1.375rem] mb-[4.0625rem] font-mont text-sm leading-[1.7188rem] text-[#fff] font-normal md:w-[452px] text-center ">
+                Getlinked Hackathon 1.0 is honored to have the following major
+                companies as its partners and sponsors
+              </p>
+            </div>
 
-            <div className="flex justify-center w-full">
-              <div className=" flex items-center justify-center w-[80%] md:w-[768px] xl:w-[1255px] rounded-[5px] border-[1px] border-[#D434FE] py-[83px] xl:py-[9rem] relative text-center">
-                <div className="flex flex-col gap-x-4 ">
-                  <div className="flex items gap-4 items-stretch">
+            <div className="flex justify-center w-full ">
+              <div className=" flex items-center justify-center  xl:w-[1255px] rounded-[5px] border-[1px] border-[#D434FE] py-[83px] xl:py-[9rem] relative text-center ">
+                <div className="flex flex-col gap-x-4  justify-center w-[80%]">
+                  <div className="flex items gap-4 items-stretch justify-center">
                     <img
                       src="/images/partner1.svg"
                       alt=""
-                      className="border-b-[4px] border-[#D434FE] pb-6 px-[2rem] xl:pr-[6.6875rem] lg:pl-[50px] w-[20%] lg:w-[60%] xl:w-auto"
+                      className="border-b-[4px] border-[#D434FE] pb-6 px-[2rem] lg:pr-[6.6875rem] lg:pl-[50px] w-[100px] xl:w-auto"
                     />
                     <div className="w-[4px] bg-[#D434FE] mb-4"></div>
                     <img
                       src="/images/partner2.svg"
                       alt=""
-                      className="border-b-[4px] border-[#D434FE] pb-6 px-[2rem] xl:pl-[30px] xl:pr-[40px] w-[20%] lg:w-[60%] xl:w-auto"
+                      className="border-b-[4px] border-[#D434FE] pb-6 px-[2rem] lg:pl-[30px] xl:pr-[40px] w-[100px] xl:w-auto"
                     />
                     <div className="w-[4px] bg-[#D434FE] mb-4"></div>
                     <img
                       src="/images/partner3.svg"
                       alt=""
-                      className="border-b-[4px] border-[#D434FE] pb-6  px-[2rem] xl:pl-[60px] xl:pr-[80px] w-[20%] lg:w-[60%] xl:w-auto"
+                      className="border-b-[4px] border-[#D434FE] pb-6  px-[2rem] lg:pl-[60px] xl:pr-[80px] lg:w-[60%] xl:w-auto"
                     />
                   </div>
 
-                  <div className="flex items gap-4">
+                  {/* <div className="flex items gap-4 items-stretch justify-center">
                     <img
                       src="/images/partner4.svg"
                       alt=""
@@ -635,33 +659,37 @@ const Landing = () => {
                         className=" pt-6 absolute"
                       />
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
           </div>
         </div>
         {/* privacy */}
-        <div className="xl:pl-[11.6875rem] xl:pr-[9.1875rem] flex xl:gap-[3.125rem] text-[#fff] pb-[160px] pt-[150px] relative flex-col lg:flex-row mx-auto justify-center">
+        <div className="xl:pl-[11.6875rem] xl:pr-[9.1875rem] flex xl:gap-[3.125rem] text-[#fff] pb-[160px] pt-[150px] relative flex-col lg:flex-row mx-auto justify-center w-[90%] md:w-auto ]">
           <img
             src="/images/purple8.svg"
             alt=""
             className="absolute blur-lg w-[50%] -bottom-[25%] left-[5%] mix-blend-hard-light"
           />
 
-          <div className="text-left">
-            <h5 className="font-clash text-[2rem] leading-normal font-bold w-[300px]">
+          <div
+            className="text-left  mb-[80px] md:mb-0"
+            data-aos="fade-right"
+            data-aos-once="false"
+          >
+            <h5 className="font-clash text-[2rem] leading-normal font-bold xl:w-[300px] text-center md:text-left">
               Privacy Policy and <span className="text-[#D434FE]">Terms </span>
             </h5>
-            <p className="mt-[1.0625rem] font-mont text-sm leading-[1.719rem] opacity-75 text-[#fff] font-normal ">
+            <p className="mt-[1.0625rem] font-mont text-sm leading-[1.719rem] opacity-75 text-[#fff] font-normal text-center md:text-left">
               Last updated on September 12, 2023
             </p>
-            <p className="mt-[1.0625rem] font-mont text-sm leading-[1.6485rem] text-[#fff] font-normal w-[27.375rem]">
+            <p className="mt-[1.0625rem] font-mont text-sm leading-[1.6485rem] text-[#fff] font-normal xl:w-[27.375rem] text-center md:text-left">
               Below are our privacy & policy, which outline a lot of goodies.
               it’s our aim to always take of our participant
             </p>
-            <div className="mt-[4.3125rem]  pt-[3.6875rem]  pb-[3.65rem] rounded-[5px] border-[1px] border-[#D434FE]">
-              <p className="mx-[4.5rem]  font-normal text-sm leading-[1.8934rem] w-[425px] font-mont">
+            <div className="mt-[4.3125rem]  pt-[3.6875rem]  pb-[3.65rem] rounded-[5px] border-[1px] border-[#D434FE] px-[20px] xl:px-0">
+              <p className="xl:mx-[4.5rem]  font-normal text-sm leading-[1.8934rem] lg:w-[425px] font-mont text-center md:text-left">
                 At getlinked tech Hackathon 1.0, we value your privacy and are
                 committed to protecting your personal information. This Privacy
                 Policy outlines how we collect, use, disclose, and safeguard
@@ -669,7 +697,7 @@ const Landing = () => {
                 participating in our event, you consent to the practices
                 described in this policy.
               </p>
-              <div className="pl-[4.5rem]">
+              <div className="xl:pl-[4.5rem]">
                 <h6 className="text-[#D434FE] text-base font-bold leading-[2.164rem] mt-[1.5rem] font-mont">
                   Licensing Policy
                 </h6>
@@ -679,7 +707,7 @@ const Landing = () => {
                 <div className="mt-[1.125rem]">
                   <div className="flex gap-[0.875rem] items-start">
                     <img src="/images/done.svg" alt="" className="mt-[10px]" />
-                    <p className="text-sm font-normal leading-[1.894rem] w-[401px] font-mont">
+                    <p className="text-sm font-normal leading-[1.894rem] xl:w-[401px] font-mont">
                       The Standard License grants you a non-exclusive right to
                       navigate and register for our event
                     </p>
@@ -690,7 +718,7 @@ const Landing = () => {
                       alt=""
                       className="mt-[10px] w-[17px] h-[17px]"
                     />
-                    <p className="text-sm font-normal leading-[1.894rem] w-[423px] font-mont">
+                    <p className="text-sm font-normal leading-[1.894rem] xl:w-[423px] font-mont">
                       You are licensed to use the item available at any free
                       source sites, for your project developement
                     </p>
@@ -708,22 +736,40 @@ const Landing = () => {
               </div>
             </div>
           </div>
-          <div className="relative ">
+          <div
+            className="relative flex justify-center w-full"
+            data-aos="fade-left"
+            data-aos-once="false"
+          >
+            <div className="">
+              <div className="mt-8">
+                <img
+                  src="/images/plicy2-mob.svg"
+                  alt=""
+                  className="absolute bg-fill left-[15%] -top-[50px] md:hidden"
+                />
+                <img
+                  src="/images/policy-mob.svg"
+                  alt=""
+                  className="relative md:hidden"
+                />
+              </div>
+            </div>
             <img
               src="/images/policy2.svg"
               alt=""
-              className="relative max-w-[530px] max-h-[648px] bg-fill left-[3.5rem] bottom-16"
+              className="relative max-w-[530px] md:max-h-[648px] bg-fill left-[3.5rem] bottom-16 hidden md:block"
             />
+
             <img
               src="/images/policy.svg"
               alt=""
-              className="max-w-[559px] max-h-[749px] absolute  bottom-0 left-[1.0rem]"
+              className="max-w-[559px] max-h-[749px] absolute  bottom-0 left-[1.0rem] hidden md:block"
             />
-           
           </div>
         </div>
         {/* footer */}
-        {/* <footer className="bg-[#100B20] px-[87px] xl:px-[14rem] text-[#fff] text-xs leading-[1.293rem] font-mont pt-[83px] ">
+        <footer className="bg-[#100B20] px-[87px] xl:px-[14rem] text-[#fff] text-xs leading-[1.293rem] font-mont pt-[83px] ">
           <div className="flex w-full  md:items-stretch mx-auto justify-center md:justify-between flex-col md:flex-row gap-4">
             <div className="flex flex-col justify-between">
               <div className="max-w-[430px]">
@@ -856,7 +902,7 @@ const Landing = () => {
               All rights reserved. &copy; getLinked Ltd.
             </p>
           </div>
-        </footer> */}
+        </footer>
       </div>
     </div>
   );
