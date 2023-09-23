@@ -1,19 +1,15 @@
 import React from "react";
-import { Navigate, Outlet, Route, Routes } from "react-router-dom";
-import Landing from "../app/pages/landing";
+import { Route, Routes } from "react-router-dom";
+import Landing from "../app/pages";
+import Contact from "../app/pages/contact";
+import Register from "../app/pages/register";
 
 export const AppRoute = () => {
   return (
     <Routes>
-      <Route element={<ProtectedRoute/>}>
-        <Route path="/" element={<Landing />} />
-      </Route>
+      <Route path="/" element={<Landing />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/register" element={<Register />} />
     </Routes>
   );
 };
-
-
-const ProtectedRoute = () => {
-  const user = localStorage.getItem("token")
-  return !user ? <Outlet/> : <Navigate to="/login" />
-}

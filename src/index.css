@@ -2,3 +2,153 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600;700;800&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    background-color: #150E28 !important;
+    scroll-behavior: smooth;
+}
+
+.unica {
+    font-family: 'Unica One', cursive;
+}
+.inter {
+    font-family: 'Inter', cursive;
+}
+input:focus textarea:active select:active {
+    outline: none;
+    border: none;
+}
+@font-face {
+    font-family: "Clash";
+    src: url("./fonts/font-clash/Fonts/OTF/ClashDisplay-Regular.otf");
+    font-weight: 400
+}
+
+@font-face {
+    font-family: "Clash";
+    src: url("./fonts/font-clash/Fonts/OTF/ClashDisplay-Bold.otf");
+    font-weight: 700
+}
+@font-face {
+    font-family: "Clash";
+    src: url("./fonts/font-clash/Fonts/OTF/ClashDisplay-Semibold.otf");
+    font-weight: 600
+}
+
+
+@font-face {
+    font-family: "Monteserrat";
+    src: url("./fonts/font-montserrat/Fonts/OTF/Montserrat-Regular.otf");
+    font-weight: 400
+}
+
+@font-face {
+    font-family: "Monteserrat";
+    src: url("./fonts/font-montserrat/Fonts/OTF/Montserrat-Bold.otf");
+    font-weight: 700
+}
+@font-face {
+    font-family: "Monteserrat";
+    src: url("./fonts/font-montserrat/Fonts/OTF/Montserrat-SemiBold.otf");
+    font-weight: 600
+}
+
+.h4 {
+    line-height: none;
+}
+
+.primaryColor {
+    background: linear-gradient(270deg, #903AFF 0%, #FE34B9 100%);
+}
+
+.color1 {
+    background-color: #150E28 !important;
+}
+
+.color2 {
+    background-color: #903AFF;
+}
+
+.color3 {
+    background-color: #D434FE;
+}
+.timeline-gradient{
+    background: linear-gradient(270deg, #903AFF 0%, #D434FE 100%);
+}
+.register {
+    border-radius: 4px;
+    background: linear-gradient(270deg, #903AFF 0%, #D434FE 56.42%, #FF26B9 99.99%, #FE34B9 100%);
+}
+input::placeholder, textarea::placeholder{
+    color: #fff;
+}
+.contact{
+    background: linear-gradient(90deg, #903AFF 3.08%, #FF26B9 93.85%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+}
+.purple-flare {
+    background: url("/public/images/purple-lens.svg");
+    background-blend-mode: hard-light;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #150E28;
+}
+.purple-flare2 {
+    background: url("/public/images/purple-lens.svg");
+    background-blend-mode: hard-light;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #150E28;
+
+}
+.purple-flare3 {
+    background: url("/public/images/purple3.svg");
+    background-blend-mode: hard-light;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #150E28;
+    background-position: right bottom;
+
+}
+.purple-flare4 {
+    background: url("/public/images/purple4.svg");
+    background-blend-mode: hard-light;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #150E28;
+    background-position: center bottom;
+    backdrop-filter: blur(12px);
+
+}
+.blink {
+    animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+.bg-fill{
+    fill: linear-gradient(180deg, rgba(144, 58, 255, 0.14) 0%, rgba(255, 38, 185, 0.14) 100%);
+    
+}
