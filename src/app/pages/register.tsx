@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Loader } from "../components/loader";
-import { IContactData } from "../interface/contact";
 import { IRegister } from "../interface/register";
 import { ICategory } from "../interface/category";
 import { getCategory, postRegister } from "../../services/getLinked";
+import Header from "../components/header";
+import { Link } from "react-router-dom";
 
 const size = [2, 5, 10];
 const Register = () => {
@@ -20,10 +21,11 @@ const Register = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [category, setCategory] = useState<ICategory[]>();
   const [error, setError] = useState<string>("");
+  const [fillMessage, setFillMessage] = useState<string>("");
+  const [emailError, setEmailError] = useState<string>("");
   const getData = async () => {
     try {
       const data = await getCategory();
-      console.log(data.data);
       setCategory(data?.data);
     } catch (e) {
       return e;
@@ -32,6 +34,26 @@ const Register = () => {
   useEffect(() => {
     getData();
   }, []);
+
+  useEffect(() => {
+    if (
+      registerData?.team_name === "" ||
+      registerData?.email === "" ||
+      registerData?.phone_number === "" ||
+      registerData?.group_size === 0 ||
+      registerData?.project_topic === "" ||
+      registerData?.category === ""
+    ) {
+      setFillMessage("");
+    } else if (
+      /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(registerData.email)
+    ) {
+      setEmailError("");
+    } else if (registerData?.privacy_poclicy_accepted === true) {
+      setFillMessage("");
+    }
+  }, [registerData]);
+
   const formHandler = (
     e: React.FormEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -51,26 +73,45 @@ const Register = () => {
 
   const onSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setLoading(true);
-    try {
-      const data = await postRegister(registerData);
-      if (data) {
-        setSuccess(true);
-        setRegisterData({
-          email: "",
-          phone_number: "",
-          team_name: "",
-          group_size: 0,
-          project_topic: "",
-          category: "",
-          privacy_poclicy_accepted: false,
-        });
+
+    if (
+      registerData?.team_name === "" ||
+      registerData?.email === "" ||
+      registerData?.phone_number === "" ||
+      registerData?.group_size === 0 ||
+      registerData?.project_topic === "" ||
+      registerData?.category === ""
+    ) {
+      setFillMessage("Kindly fill all fields");
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(registerData.email)
+    ) {
+      setEmailError("Please provide a valid email address");
+    } else if (!registerData?.privacy_poclicy_accepted) {
+      setFillMessage(
+        "Kindly agree with out terms and condition before proceding"
+      );
+    } else {
+      setLoading(true);
+      try {
+        const data = await postRegister(registerData);
+        if (data) {
+          setSuccess(true);
+          setRegisterData({
+            email: "",
+            phone_number: "",
+            team_name: "",
+            group_size: 0,
+            project_topic: "",
+            category: "",
+            privacy_poclicy_accepted: false,
+          });
+        }
+        setLoading(false);
+      } catch (e: any) {
+        setLoading(false);
+        return e;
       }
-      setLoading(false);
-    } catch (e: any) {
-      console.log(e);
-      setLoading(false);
-      return e;
     }
   };
 
@@ -83,26 +124,30 @@ const Register = () => {
   }, [error]);
   return (
     <>
+      {
+        <div className="hidden lg:block">
+          <Header page="register" />
+        </div>
+      }
       {success && (
         <div className=" bg-[rgba(14,21,40,0.93)] h-[100vh] w-full fixed top-0 left-0 flex justify-center z-[3] text-[#fff] mx-auto text-center font-mont items-center">
-         
-          <div className="xl:mt-[14.375rem] w-[90%] md:w-[699px] h-auto text-center mx-auto ">
+          <div className="xl:mt-[14.375rem] w-[90%] lg:w-[699px] h-auto text-center mx-auto ">
             <div className="radius-[5px] border-[1px] border-[#D434FE] ">
               <div className="relative flex justify-center w-full">
                 <img
                   src="/images/star-c.svg"
                   alt=""
-                  className="blink absolute -top-[30px] right-0  w-[10px] md:w-auto"
+                  className="blink absolute -top-[30px] right-0  w-[10px] lg:w-auto"
                 />
 
-                <div className="md:w-[300px] absolute left-[20px] md:left-[135px] top-[20px] z-[1]">
+                <div className="lg:w-[300px] absolute left-[20px] lg:left-[135px] top-[20px] z-[1]">
                   <img
                     src="/images/successfully-done-mob.svg"
                     alt=""
                     className=" w-full"
                   />
                 </div>
-                <div className="md:w-[330px] relative left-[20px] md:left-[65px] top-[30px] z-[2] mx-auto ">
+                <div className="lg:w-[330px] relative left-[20px] lg:left-[65px] top-[30px] z-[2] mx-auto ">
                   <img
                     src="/images/successful-man-mob.svg"
                     alt=""
@@ -115,15 +160,15 @@ const Register = () => {
                 <img
                   src="/images/star-c2.svg"
                   alt=""
-                  className="blink absolute -top-[10%] left-[30px]  w-[10px] md:w-auto"
+                  className="blink absolute -top-[10%] left-[30px]  w-[10px] lg:w-auto"
                 />
-                <p className=" text-[16px] md:text-[32px] leading-[] font-semibold">
+                <p className=" text-[16px] lg:text-[32px] leading-[] font-semibold">
                   Congratulations
                 </p>
-                <p className="text-[1rem] md:text-[32px] font-semibold">
+                <p className="text-[1rem] lg:text-[32px] font-semibold">
                   you have successfully Registered!
                 </p>
-                <p className=" mt-[12px] md:mt-[8px] text-[12px] md:text-[14.5px] leading-[]">
+                <p className=" mt-[12px] lg:mt-[8px] text-[12px] lg:text-[14.5px] leading-[]">
                   Yes, it was easy and you did it <br />
                   check your mail box for next step{" "}
                   <span className="inline-block relative top-[3px]">
@@ -135,16 +180,16 @@ const Register = () => {
                   </span>
                 </p>
 
-                <div className=" w-[90%] md:w-full mx-auto text-center relative">
+                <div className=" w-[90%] lg:w-full mx-auto text-center relative">
                   <img
                     src="/images/star-c3.svg"
                     alt=""
-                    className="blink absolute bottom-[30px] right-0 w-[10px] md:w-auto"
+                    className="blink absolute bottom-[30px] right-0 w-[10px] lg:w-auto"
                   />
                   <button
                     onClick={() => setSuccess(false)}
                     type="button"
-                    className="register py-[1.0625rem] px-[2rem] md:px-[3.57rem] text-[#fff] mt-[1.375rem] w-full md:w-[36rem] text-[1rem] leading-[1.21875rem] mb-[70px]"
+                    className="register py-[1.0625rem] px-[2rem] lg:px-[3.57rem] text-[#fff] mt-[1.375rem] w-full lg:w-[36rem] text-[1rem] leading-[1.21875rem] mb-[70px]"
                   >
                     Back
                   </button>
@@ -154,46 +199,61 @@ const Register = () => {
           </div>
         </div>
       )}
-      <h6 className="font-clash font-semibold text-[1.5rem] leading-[1.46rem] text-[#D434FE] px-[2rem] md:hidden mt-[40px]">
-        Register
-      </h6>
-      <div className="mx-auto text-left  min-h-[100vh] color1 flex justify-center font-mont font-normal overflow-hidden">
 
-        
-        <div className="flex flex-col md:flex-row color1 text-[#fff]  max-w-[1512px]  pb-[7.1875rem] mt-[8rem] md:mt-[16rem] ">
-          <div className="flex justify-center w-full md:w-[40%] relative">
+      <div className="">
+        <h6 className="font-clash font-semibold text-[1.5rem] leading-[1.46rem] text-[#D434FE] px-[2rem] lg:hidden mt-[40px]">
+          Register
+        </h6>
+        <div className="flex justify-start items-start">
+          <Link to="/">
+            <img
+              src="/images/back_icon.svg"
+              alt=""
+              className={` lg:hidden fixed z-[11] right-[50px] top-[45px] w-[13px] z-2 `}
+            />
+            <img
+              src="/images/circle.svg"
+              alt=""
+              className={` lg:hidden fixed z-[12] right-[40px] top-[40px] w-[30px] z-2`}
+            />
+          </Link>
+        </div>
+      </div>
+      <div className="mx-auto text-left  min-h-[100vh] color1 flex justify-center font-mont font-normal overflow-hidden">
+        <div className="flex flex-col lg:flex-row color1 text-[#fff]  max-w-[1512px]  pb-[7.1875rem] mt-[8rem]">
+          <div className="flex justify-center w-full lg:w-[40%] relative">
             <img
               src="/images/graphics-designer.svg"
               alt=""
-              className="w-[90%] hidden md:block"
+              className="w-[90%] hidden lg:block"
             />
             <img
               src="/images/star-c3.svg"
               alt=""
-              className="blink absolute -top-[30px] left-[10%]  w-[10px] md:w-auto"
+              className="blink absolute -top-[30px] left-[10%]  w-[10px] lg:w-auto"
             />
             <img
               src="/images/star-c2.svg"
               alt=""
-              className="blink absolute bottom-[30px] left-[10%]  w-[10px] md:w-auto"
+              className="blink absolute bottom-[30px] left-[10%]  w-[10px] lg:w-auto"
             />
             <img
               src="/images/star-c3.svg"
               alt=""
-              className="blink absolute bottom-[10%] right-[10%]  w-[10px] md:w-auto"
+              className="blink absolute bottom-[10%] right-[10%]  w-[10px] lg:w-auto"
             />
             <img
               src="/images/graphics-designer2.svg"
               alt=""
-              className="w-[90%] md:hidden"
+              className="w-[90%] lg:hidden"
             />
           </div>
           <div className="">
-            <div className="rounded-[12px] px-[2rem] xl:px-[5.6875rem] py-[4.0625rem] md:bg-[#241d37] md:shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] relative">
+            <div className="rounded-[12px] px-[2rem] xl:px-[5.6875rem] py-[4.0625rem] lg:bg-[#241d37] lg:shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] relative">
               <img
                 src="/images/star-c2.svg"
                 alt=""
-                className="blink absolute top-[30px] left-[10%] md:right-[10%]  w-[10px] md:w-auto "
+                className="blink absolute top-[30px] right-[10%] lg:right-[10%]  w-[10px] lg:w-auto "
               />
 
               <img
@@ -201,7 +261,7 @@ const Register = () => {
                 alt=""
                 className="blink absolute bottom-[50px] right-[10%]  w-[5px] "
               />
-              <h6 className="hidden md:block mb-[2.875rem] font-clash font-semibold text-[2rem] leading-[2.46rem] text-[#D434FE] px-[0.0625rem] ">
+              <h6 className="hidden lg:block mb-[2.875rem] font-clash font-semibold text-[2rem] leading-[2.46rem] text-[#D434FE] px-[0.0625rem] ">
                 Register
               </h6>
               <div className="flex items-end mb-[1.1875rem]">
@@ -289,6 +349,11 @@ const Register = () => {
                       onChange={formHandler}
                       value={registerData?.email}
                     />
+                    {emailError && (
+                      <p className="text-[#D434FE] text-xs transition-all ease-in-out">
+                        {emailError}
+                      </p>
+                    )}
                   </div>
                   <div className="flex flex-col">
                     <label
@@ -384,24 +449,34 @@ const Register = () => {
                     className="ml-[0.625rem] text-[#fff] text-[0.75rem] leading-[0.9143rem]"
                   >
                     {" "}
-                    I agreed with the event terms and conditions and privacy
+                    I agree with the event terms and conditions and privacy
                     policy
                   </label>
                 </div>
-                <div className="w-full mx-auto text-center">
+                {fillMessage && (
+                  <p className="text-[#D434FE] text-xs transition-all ease-in-out pt-[30px]">
+                    {fillMessage}
+                  </p>
+                )}
+                {error && (
+                  <p className="text-[#D434FE] text-xs transition-all ease-in-out ">
+                    {error}
+                  </p>
+                )}
+                <div className="w-full mx-auto text-center items-center ">
                   <button
                     type="submit"
                     onClick={onSubmit}
-                    disabled={loading || !registerData.privacy_poclicy_accepted}
-                    className="register py-[1.0625rem] pl-[3.5625rem] pr-[3.5rem] text-[#fff] mt-[1.375rem] lg:w-[34.875rem] text-[1rem] leading-[1.21875rem] text hidden md:block"
+                    disabled={loading}
+                    className="register py-[1.0625rem] pl-[3.5625rem] pr-[3.5rem] text-[#fff] mt-[1.375rem] lg:w-[34.875rem] text-[1rem] leading-[1.21875rem] text hidden lg:flex text-center mx-auto h-[50px] justify-center"
                   >
                     {loading ? <Loader /> : "Register Now"}
                   </button>
                   <button
                     type="submit"
                     onClick={onSubmit}
-                    disabled={loading || !registerData.privacy_poclicy_accepted}
-                    className="register py-[1.0625rem] pl-[3.5625rem] pr-[3.5rem] text-[#fff] mt-[1.375rem] lg:w-[34.875rem] text-[1rem] leading-[1.21875rem] text md:hidden"
+                    disabled={loading}
+                    className="register py-[1.0625rem] pl-[3.5625rem] pr-[3.5rem] text-[#fff] mt-[1.375rem] lg:w-[34.875rem] text-[1rem] leading-[1.21875rem] text lg:hidden text-center"
                   >
                     {loading ? <Loader /> : "Submit"}
                   </button>
